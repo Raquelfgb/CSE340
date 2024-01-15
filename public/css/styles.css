@@ -1,22 +1,22 @@
-/******* Change Box Model ***************/
-*,
+*, 
 *:before,
-*:after {
+*:after{
   box-sizing: border-box;
 }
 
-body::before {
-  position: absolute;
-  background: url(/public/images/site/checkerboard.jpg)
+body{
+  background-image: url(/public/images/site/checkerboard.jpg);
 }
 
-body {
+
+.box {
   font-family: Arial, sans-serif;
   margin: 20px 100px;
   padding: 50px;
   background-color: #f4f4f4;
   border: 10px solid #35aee1;
   border-radius: 3%;
+  overflow-x: auto;
 }
 
 header {
@@ -30,17 +30,21 @@ nav {
 }
 
 nav ul {
+  display: flex;
   list-style-type: none;
   margin: 10px;
   padding: 0;
+  overflow: hidden;
+  justify-content: space-evenly;
+  width: auto;
 }
 
 nav ul li{
-  display: left;
+  display: inline;
 }
 
 nav ul li a {
-  display: inline;
+  display: block;
   color: white;
   text-align: center;
   padding: 20px 15px;
@@ -72,16 +76,17 @@ section {
 .back img{
   height: auto;
   width: 100%;
-  z-index: 1;
+  margin: 0;
+
 }
 
 .banner{
   height: 200px;
   width: 200px;
-  color: #fff;
+  background-color: #fff;
   margin: 200px 200px 15px 0px;
   text-align: center;
-  position: relative;
+  position: absolute; 
   
 }
 
@@ -97,22 +102,40 @@ button{
 } 
 
 .up {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.lastportion{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 95%;
+  justify-content: space-between;
+}
+
+.options{
+  grid-column: 1/2;
+  padding:0;
+  margin: 0;
+}
+
+.options2{
+  grid-column: 2/2;
+  padding: 0;
+  margin: 0;
+  width: auto;
 }
 
 .upgrades{
-  flex:auto; 
+  flex: auto; 
   margin: 10px;
-  background-color:  #35aee1;
   padding: 20px;
+  background-color:  #35aee1;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.options h3{
-  
-}
 
 footer {
   color: rgb(5, 4, 4);
@@ -120,4 +143,25 @@ footer {
   padding: 10px;
   bottom: 0;
   width: 100%;
+}
+
+@media only screen and (max-width:600px) {
+  .lastportion{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 95%;
+  }
+  
+
+  .options{
+    grid-row: 2/2;
+  
+  }
+  
+  .options2{
+    grid-row: 1/2;
+    
+  }
 }
