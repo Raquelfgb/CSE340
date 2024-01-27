@@ -260,6 +260,7 @@ JOIN classification
 WHERE public.inventory.classification_id = 2;
 
 -- Query 6
-UPDATE public.inventory SET inv_image = REPLACE(inv_image, '/images/','/images/vehicles/'), 
+UPDATE public.inventory 
+SET inv_image = REPLACE(inv_image, '/images/','/images/vehicles/'), 
 inv_thumbnail = REPLACE(inv_thumbnail, '/images/','/images/vehicles/');
 SELECT * FROM public.inventory;
