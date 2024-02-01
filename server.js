@@ -56,6 +56,10 @@ app.use("/inv", require("./routes/inventoryRoute"))
 // Account routes
 app.use("/account", require("./routes/accountRoute"))
 
+// Route to build login view
+//router.get("/login", utilities.handleErrors(accountController.buildLogin))
+
+
 
 
 // File Not Found Route - must be last route in list
