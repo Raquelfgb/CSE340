@@ -6,9 +6,7 @@ const utilities = require("../utilities")
 
 
 router.get("/login", utilities.handleErrors(accountController.buildLogin))
-router.get("/login", utilities.handleErrors(accountController.buildRegister))
+router.get("/registration", utilities.handleErrors(accountController.buildRegister))
 
-
-router.post()
 
 module.exports = router
