@@ -154,6 +154,28 @@ footer {
   width: 100%;
 }
 
+
+/*input:required:invalid, input:focus:invalid {
+  /* insert your own styles for invalid form input */
+ /*}
+
+
+input:required:valid {
+  /* insert your own styles for valid form input */
+ /*}
+
+input:required:invalid, input:focus:invalid {
+  background-image: url(/images/invalid.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+ }
+input:required:valid {
+  background-image: url(/images/valid.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+  }*/
+
+
 @media only screen and (max-width: 200px) {
   .lastportion{
     display: grid;

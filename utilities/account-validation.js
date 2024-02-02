@@ -40,7 +40,7 @@ validate.registationRules = () => {
     ]
   }
 
-  
+
   /* ******************************
  * Check data and return errors or continue to registration
  * ***************************** */
