@@ -154,6 +154,32 @@ footer {
   width: 100%;
 }
 
+.account{
+  position: relative;
+  width: 40%;
+  height: 60%;
+  margin: 0 auto;
+  padding: 1em;
+  box-sizing: border-box;
+  background: #107fc4 url(background.jpg);
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat (4, 1fr);
+  color: white;
+  justify-content: center;
+
+}
+
+input,
+select,
+button {
+  width: 150px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 
 /*input:required:invalid, input:focus:invalid {
   /* insert your own styles for invalid form input */

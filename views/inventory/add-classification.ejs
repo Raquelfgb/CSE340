@@ -1,0 +1,24 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+  <a href="/inv/management">Return</a>
+  <form class="account" action="/inv/add-classification" method="post">
+    <div class="container">
+        <div class="field">
+            <label for="classification_name"><b>Classification</b></label><br>
+            <input type="text" placeholder="Enter classification name" name="classification_name" required>
+         </div><br>
+        <br><button type="submit">Add</button>
+    </div>
+</form>

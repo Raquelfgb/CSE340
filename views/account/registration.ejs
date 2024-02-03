@@ -1,4 +1,19 @@
-<form action="/account/register" method="post">
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+
+<form class="account" action="/account/registration" method="post">
     <div class="container">
       <h1>Register</h1>
       <p>Please fill in this form to create an account.</p>
@@ -22,15 +37,10 @@
     </div>
   
     <div class="container signin">
-      <p>Already have an account? <a href="#">Sign in</a>.</p>
+      <p>Already have an account? <a href="/views/account/login.ejs">Sign in</a>.</p>
     </div>
   </form>
 
-  <% if (errors) { %>
-    <ul class="notice">
-   <% errors.array().forEach(error => { %>
-     <li><%= error.msg %></li>
-  <%  }) %>
-   </ul>
-  <% } %>
-  
+
+
+

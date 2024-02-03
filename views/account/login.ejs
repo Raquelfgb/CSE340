@@ -1,6 +1,26 @@
-<form>
-    <label for="fname">Email:</label><br>
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+<form class="account" action="/account/login" method="post">
+    <label for="email">Email:</label><br>
     <input type="email" id="email_login" name="email_login"><br>
-    <label for="lname">Password:</label><br>
-    <input type="password" id="password_login" name="password_login">
-  </form>
+    <label for="password">Password:</label><br>
+    <input type="password" name="account_password" id="accountPassword" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+    <span>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span> 
+    <button type="submit" class="login-button">Login</button><br>
+    <div class="no-account">
+        <p>No account? <a href="/account/registration">Sign in</a></p>
+    </div>
+</form>
+
