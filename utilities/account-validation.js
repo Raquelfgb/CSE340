@@ -1,4 +1,4 @@
-const utilities = require(".")
+const utilities = require("../models/account-model")
 const { body, validationResult } = require("express-validator")
 const validate = {}
 const accountModel = require("../models/account-model")
@@ -111,9 +111,23 @@ validate.loginRules = () => {
           if (!emailExists){
             throw new Error("Email not found. Please log in with a different email")
           }
-        })
-    ]
-  }
+        }),
+
+
+      //password is required and must be strong password 
+      body("account_password")
+        .trim()
+        .isStrongPassword({
+          minLength: 12,
+          minLowercase: 1,
+          minUppercase: 1,
+          minNumbers: 1,
+          minSymbols: 1
+      })
+      .withMessage("Password does not meet requirements") // on error this message is sent 
+  ]
+}
+  
 
   /* ******************************
  * Check data and return errors or continue to registration

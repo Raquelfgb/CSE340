@@ -15,6 +15,17 @@ async function buildLogin(req, res, next){
     })
 }
 
+
+async function buildAccount(req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("./account/management", {
+    title: "Account Management",
+    nav,
+    errors: null,
+  })
+}
+
+
 async function buildRegister(req, res, next){
     let nav = await utilities.getNav()
     res.render("account/registration", {
@@ -63,7 +74,7 @@ async function registerAccount(req, res) {
       })
     } else {
       req.flash("notice", "Sorry, the registration failed.")
-      res.status(501).render("account/register", {
+      res.status(501).render("account/registration", {
         title: "Registration",
         nav,
       })
@@ -99,5 +110,5 @@ async function accountLogin(req, res) {
   }
  }
 
-  module.exports = { buildLogin, buildRegister, registerAccount }
+  module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildAccount }
   
