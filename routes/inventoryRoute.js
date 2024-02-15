@@ -19,7 +19,7 @@ router.get("/type/:classificationId", utilities.handleErrors(invController.build
 router.get("/details/:inv_id", utilities.handleErrors(invController.buildByInventoryId));
 
 // Route to build vehicle management view
-router.get("/", utilities.handleErrors(invController.buildVehicleManagement))
+router.get("/", utilities.handleErrors(invController.buildManagement))
 
 
 // Route to build add classification view

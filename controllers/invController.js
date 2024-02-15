@@ -55,7 +55,7 @@ invCont.buildManagement  = async function (req, res, next) {
   let nav = await utilities.getNav()
   const classificationSelect = await utilities.getClassificationSelects(0, true)
   res.render("./inventory/management", {
-    title: "Maneger Dashboard",
+    title: "Manager Dashboard",
     nav,
     classificationSelect,
     errors: null,

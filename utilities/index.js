@@ -81,6 +81,25 @@ Util.getNav = async function (req, res, next) {
 }
 
 
+/* ************************
+ * Constructs the add inventory
+ ************************** */
+Util.getClassificationSelects = async function (classification_id) {
+  let data = await invModel.getClassifications();
+  let list = `<select id="classificationList" name="classification_id" required>`
+  list += `<option value="">Choose an option</option>`
+  data.rows.forEach((row) => {
+    list += `<option value="${row.classification_id}>`
+    if (row.classification_id = classification_id){
+      list += 'selected'}
+    list += `${row.classification_name}</option>`
+
+    })
+  list +="</select>"
+  return list
+    
+}
+
 
 /* ****************************************
  * Middleware For Handling Errors
