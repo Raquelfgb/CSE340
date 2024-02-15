@@ -125,7 +125,6 @@ validater.checkAddClassification = async (req, res, next) => {
     next(); // Move to the next middleware (or route handler) if there are no validation errors
   };
   
-
   
   /* ******************************
    * Check data and return errors or  continue to Inventory update
@@ -158,7 +157,8 @@ validater.checkAddClassification = async (req, res, next) => {
   
     next(); // Move to the next middleware (or route handler) if there are no validation errors
   };
+
+
   
-  
-    module.exports = validater 
+module.exports = validater 
     

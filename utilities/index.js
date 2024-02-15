@@ -4,6 +4,28 @@ const jwt = require("jsonwebtoken")
 require("dotenv").config()
 
 
+/* ************************
+ * Constructs the nav HTML unordered list
+ ************************** */
+Util.getNav = async function (req, res, next) {
+  let data = await invModel.getClassifications()
+  let list = "<ul>"
+  list += '<li><a href="/" title="Home page">Home</a></li>'
+  data.rows.forEach((row) => {
+    list += "<li>"
+    list +=
+      '<a href="/inv/type/' +
+      row.classification_id +
+      '" title="See our inventory of ' +
+      row.classification_name +
+      ' vehicles">' +
+      row.classification_name +
+      "</a>"
+    list += "</li>"
+  })
+  list += "</ul>"
+  return list
+}
 
 
 /* **************************************
@@ -58,30 +80,6 @@ Util.buildInventoryDetail = async function(data){
 
 
 /* ************************
- * Constructs the nav HTML unordered list
- ************************** */
-Util.getNav = async function (req, res, next) {
-  let data = await invModel.getClassifications()
-  let list = "<ul>"
-  list += '<li><a href="/" title="Home page">Home</a></li>'
-  data.rows.forEach((row) => {
-    list += "<li>"
-    list +=
-      '<a href="/inv/type/' +
-      row.classification_id +
-      '" title="See our inventory of ' +
-      row.classification_name +
-      ' vehicles">' +
-      row.classification_name +
-      "</a>"
-    list += "</li>"
-  })
-  list += "</ul>"
-  return list
-}
-
-
-/* ************************
  * Constructs the add inventory
  ************************** */
 Util.getClassificationSelects = async function (classification_id) {
@@ -95,6 +93,7 @@ Util.getClassificationSelects = async function (classification_id) {
     list += `${row.classification_name}</option>`
 
     })
+    
   list +="</select>"
   return list
     
@@ -145,6 +144,36 @@ Util.checkLogin = (req, res, next) => {
     return res.redirect("/account/login")
   }
  }
+
+/* ****************************************
+ *  Check Account Type  
+ * ************************************ */
+Util.checkAccountType = (req, res, next) => {
+  if (res.locals.accountData) {
+    if(res.locals.accountData.account_type == "Employee" || res.locals.accountData.account_type == "Admin") next()
+  } else {
+    req.flash("problem", "You are not authorized")
+    return res.redirect("/")
+  }
+ }
+
+
+Util.checkAccountUpdateAccess = (req, res, next) => {
+  if (res.locals.accountData) {
+    if(res.locals.accountData.account_type == "Employee" || res.locals.accountData.account_type == "Admin"){
+      next()
+    }else{
+      if(res.locals.account_id != res.locals.accountData.account_id){
+        req.flash("notice", "You are not authorized to access this page")
+    return res.redirect("/")
+      }
+    }
+  } else {
+    req.flash("problem", "You are not authorized")
+    return res.redirect("/")
+  }
+ }
+
 
 
 

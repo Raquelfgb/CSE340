@@ -1,0 +1,56 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+  <% } else {
+    res.redirect('/');
+  } %>
+  
+  <%- messages() %>
+  <% if (errors) { %>
+    <ul class="notice">
+      <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+  
+  <div class="edit">
+    <form class="form" action="/account/delete" method="post">
+      <div class="delete">
+        <div class="delete">
+          <h2>Delete Account</h2>
+        </div>
+        <div class="delete">
+          <input type="hidden" name="account_id" value="<%= locals.account_id %>">
+  
+          <div class="del">
+            <label>
+              <span>First Name:</span>
+              <input label="First Name" type="text" name="account_firstname" value="<%= locals.account_firstname %>" readonly>
+            </label>
+          </div>
+  
+          <div class="del">
+            <label>
+              <span>Last Name:</span>
+              <input label="Last Name" type="text" name="account_lastname" value="<%= locals.account_lastname %>" readonly>
+            </label>
+          </div>
+  
+          <div class="del">
+            <label>
+              <span>Account Email:</span>
+              <input label="Account Email" type="text" name="account_email" value="<%= locals.account_email %>" readonly>
+            </label>
+          </div>
+ 
+          <div class="del">
+            <button id="submitButton" type="submit" name="submit" value="Delete Account">Delete Account</button>
+            <button id="cancelButton" type="cancel" name="cancel" value="Cancel">Cancel</button>
+          </div>
+        </div>
+        <div class="edit">
+          <p>Confirm Deletion - The delete is permanent.</p>
+        </div>
+      </div>
+    </form>
+  </div>

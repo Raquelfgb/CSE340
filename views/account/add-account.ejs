@@ -1,0 +1,60 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+  <% } else {
+    res.redirect('/')
+  } %>
+  
+  <div class="edit">
+    <form class="form" action="/account/register" method="post">
+      
+        
+          <h2>Register Account</h2>
+        </div>
+        
+          <span class="reg">* Required</span>
+  
+          
+            <label>
+              <span>First Name:</span><span class="required">*</span>
+              <input label="First Name" type="text" name="account_firstname" required required="true" pattern="[A-Za-z ]{3,50}">
+            </label>
+          </div>
+  
+          
+            <label>
+              <span>Last Name:</span><span class="required">*</span>
+              <input label="Last Name" type="text" name="account_lastname" required required="true" pattern="[A-Za-z ]{3,50}">
+            </label>
+          </div>
+  
+          <div class="del">
+            <label>
+              <span>Email:</span><span class="required">*</span>
+              <input abel="Email" type="email" name="account_email" required required="true">
+            </label>
+          </div>
+  
+          <div class="del">
+            <label>
+              <span>Password:</span><span class="required">*</span>
+              <input label="Password" type="password" name="account_password" required required="true">
+            </label>
+          </div>
+  
+          <div class="del">
+            <label>
+              <span>Account Type:</span><span class="required">*</span>
+              <select aria-label="Account Type" name="account_type" required required="true">
+                <option value="client">Client</option>
+                <option value="manager">Manager</option>
+                <option value="admin">Admin</option>
+              </select>
+            </label>
+          </div>
+          <div class="del">
+            <input id="submitButton" type="submit" name="submit" value="Register">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
