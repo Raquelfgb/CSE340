@@ -1,0 +1,56 @@
+<h1>
+    <%= title %>
+  </h1>
+  
+  <%- messages() %>
+  
+  <% if (errors) { %>
+    <ul class="problem">
+      <% errors.array().forEach(error=> { %>
+        <li>
+          <%= error.msg %>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+  
+  <div id="edit">
+    <form id='editForm' action="/inv/edit-inventory" method="post">
+
+      <label for="v_make">Make:</label>
+      <input type="text" name="v_make" id="v_make" required value="<%= v_make %>" placeholder="Min of 3 characters">
+      
+      <label for="v_model">Model:</label>
+      <input type="text" name="v_model" id="v_model" required value="<%= v_model %>" placeholder="Min of 3 characters">
+      
+        
+        <label for="v_description">Description</label>
+        <input type="text" name="v_description" id="v_description" required value="<%= v_description %>">
+        
+        <label for="v_image">Image Path</label>
+        <input type="text" name="v_image" id="v_image" required value="<%= v_image %>">
+        
+        <label for="v_thumbnail">Thumbnail Path</label>
+        <input type="text" name="v_thumbnail" id="v_thumbnail" required value="<%= v_thumbnail %>">
+        
+        <label for="v_price">Price</label>
+        <input type="text" name="v_price" id="v_price" required value="<%= v_price %>" placeholder="decimal or integer">
+        
+        <label for="v_year">Year</label>
+        <input type="text" name="v_year" id="v_year" required value="<%= v_year %>" placeholder="4-digit year">
+        
+        <label for="v_miles">Miles</label>
+        <input type="text" name="v_miles" id="v_miles" required value="<%= v_miles %>" placeholder="digits only">
+        
+        <label for="v_color">Color</label>
+        <input type="text" name="v_color" id="v_color" required value="<%= v_color %>">
+
+        <input type="submit" name="submit" value="Edit Vehicle" disabled>
+        
+        <input type="hidden" name="inv_id"<% if(locals.inv_id) { %> value="<%= locals.inv_id %>"<% } %>>
+        <input type="hidden" name="classification_id" <% if(locals.classification_id) { %> value="<%= locals.classification_id %>"<% } %>>
+
+      </form>
+    </div>
+
+    <script src="/js/inventory.js"></script>
