@@ -1,0 +1,30 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+    
+<!-- Message block -->
+<%- messages() %>
+
+<!-- The add review form displays here  -->
+<form id="addReview" action="/review/reviews" method="post">
+
+    <div class="form">
+
+      <label for="make_review">Make</label>
+      <input type="text" name="make_review" id="make_review" disabled value="<%= locals.accountData.account_firstname.charAt(0) + locals.accountData.account_lastname %>">
+
+      <label for="description">Description</label>
+      <textarea name="description" id="description" rows="5" cols="50" required><%= description %></textarea>
+  
+      <button type="submit">Submit</button>
+
+      <input type="hidden" name="review_id"
+      <% if(review_id) { %> value="<%= review_id %>"
+      <% } %>>
+
+    </div>
+    
+</form>
+<% } %>

@@ -12,28 +12,28 @@
    </ul>
   <% } %>
 
-  <a href="/inv/management">Return</a>
-  <form action="/inv/add-inventory" method="post" class="account">
+  <a href="/inventory/management">Return</a>
+  <form action="/inventory/add-inventory" method="post" class="account">
     <div class="container">
         <div class="add">
-            <label for="v_make"><b>Make</b></label><br>
-            <input type="text" placeholder="Enter Make" name="v_make" required value="<%= locals.v_make %>">
-            <label for="v_model"><b>Model</b></label><br>
-            <input type="text" placeholder="Enter Model" name="v_model" required value="<%= locals.v_model %>">
-            <label for="v_year"><b>Year</b></label><br>
-            <input type="number" placeholder="Enter Year" name="v_year" required value="<%= locals.v_year %>" min="0" max="<%= new Date().getFullYear() %>">
-            <label for="v_description"><b>Description</b></label><br>
-            <textarea placeholder="Enter Description" name="v_description" required><%= locals.inv_description %></textarea>
-            <label for="v_image"><b>Image URL</b></label><br>
-            <input type="text" placeholder="Enter Image URL" name="v_image" required value="<%= locals.v_image %>">
-            <label for="v_thumbnail"><b>Thumbnail URL</b></label><br>
-            <input type="text" placeholder="Enter Thumbnail URL" name="v_thumbnail" required value="<%= locals.v_thumbnail %>">
-            <label for="v_price"><b>Price</b></label><br>
-            <input type="number" placeholder="Enter Price" name="v_price" required value="<%= locals.v_price %>">
-            <label for="v_miles"><b>Miles</b></label><br>
-            <input type="number" placeholder="Enter Miles" name="v_miles" required value="<%= locals.v_miles %>">
-            <label for="v_color"><b>Color</b></label><br>
-            <input type="text" placeholder="Enter Color" name="v_color" required value="<%= locals.v_color %>">
+            <label for="inv_make"><b>Make</b></label><br>
+            <input type="text" placeholder="Enter Make" name="inv_make" required value="<%= locals.inv_make %>">
+            <label for="inv_model"><b>Model</b></label><br>
+            <input type="text" placeholder="Enter Model" name="inv_model" required value="<%= locals.inv_model %>">
+            <label for="inv_year"><b>Year</b></label><br>
+            <input type="number" placeholder="Enter Year" name="inv_year" required value="<%= locals.v_year %>" min="0" max="<%= new Date().getFullYear() %>">
+            <label for="inv_description"><b>Description</b></label><br>
+            <textarea placeholder="Enter Description" name="inv_description" required><%= locals.inv_description %></textarea>
+            <label for="inv_image"><b>Image URL</b></label><br>
+            <input type="text" placeholder="Enter Image URL" name="inv_image" required value="<%= locals.inv_image %>">
+            <label for="inv_thumbnail"><b>Thumbnail URL</b></label><br>
+            <input type="text" placeholder="Enter Thumbnail URL" name="inv_thumbnail" required value="<%= locals.inv_thumbnail %>">
+            <label for="inv_price"><b>Price</b></label><br>
+            <input type="number" placeholder="Enter Price" name="inv_price" required value="<%= locals.inv_price %>">
+            <label for="inv_miles"><b>Miles</b></label><br>
+            <input type="number" placeholder="Enter Miles" name="inv_miles" required value="<%= locals.inv_miles %>">
+            <label for="inv_color"><b>Color</b></label><br>
+            <input type="text" placeholder="Enter Color" name="inv_color" required value="<%= locals.inv_color %>">
             <label for="classification_id"><b>Classification</b></label><br>
             <select name="classification_id" required><%- classificationList %></select>
         </div><br>
